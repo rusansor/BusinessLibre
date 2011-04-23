@@ -9,7 +9,7 @@ class Customer(Base):
     name = Column(String)
     cif = Column(String)
     
-    def __init__(self, name, fullname, password):
+    def __init__(self, name, cif):
         self.name = name
         self.cif = cif
 
