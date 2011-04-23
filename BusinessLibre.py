@@ -16,7 +16,7 @@ class App(object):
     def on_menuitem_customer_activate(self,widget):
         builder = gtk.Builder()
         builder.add_from_file("ui/customers.ui")
-        self.window = builder.get_object("window_customer_edit")
+        self.window = builder.get_object("window_customer_main")
         builder.connect_signals(self)
         self.window.show()
 

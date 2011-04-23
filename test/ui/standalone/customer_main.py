@@ -9,6 +9,17 @@ class TutorialApp(object):
         builder = gtk.Builder()
         builder.add_from_file("../../../ui/customers.ui")
         self.window = builder.get_object("window_customer_main")
+        self.model = builder.get_object("model")
+        self.model.append(['Ruben'])
+        self.model.append(['Natalia'])
+        print self.model
+
+        for row in self.model:
+            value = row[0]
+            print value
+
+
+
         builder.connect_signals(self)
         self.window.show()
 
