@@ -6,6 +6,8 @@ pygtk.require("2.0")
 import gtk
 from uicontroller.customers import UIControllerCustomer
 
+import main.ormsqlalchemy
+
 class App(object):       
     def __init__(self):
         builder = gtk.Builder()
@@ -26,4 +28,3 @@ if __name__ == "__main__":
 
 
     
-#import main.main

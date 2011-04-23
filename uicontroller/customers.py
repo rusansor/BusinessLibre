@@ -2,6 +2,7 @@ import pygtk
 pygtk.require("2.0")
 import gtk
 
+from main.ormsqlalchemy import Session
 from model.customer import Customer
 
 class UIControllerCustomer:
@@ -17,12 +18,11 @@ class UIControllerCustomer:
     def populate_customers_list(self):
         self.model = self.builder.get_object("model")
 
-        ruben = Customer('Ruben','48308895')
-        nata = Customer('Natalia','55667769')
-
-        self.model.append([ruben.name])
-        self.model.append([nata.name])
-        #print self.model
+        session = Session()
+        customers = session.query(Customer).all()
+        
+        for customer in customers:
+            self.model.append([customer.name])
 
         for row in self.model:
             value = row[0]
