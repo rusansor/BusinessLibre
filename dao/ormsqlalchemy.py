@@ -23,12 +23,12 @@ metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-ed_user = Customer('ed', '44663355')
+ed_user = Customer(None, 'ed', '44663355')
 session.add(ed_user)
 
 session.add_all([
-         Customer('wendy', '3334433388'),
-         Customer('mary', '7755332288'),
-         Customer('fred', '9900119922')])
+         Customer(None, 'wendy', '3334433388'),
+         Customer(None, 'mary', '7755332288'),
+         Customer(None, 'fred', '9900119922')])
 
 session.commit()

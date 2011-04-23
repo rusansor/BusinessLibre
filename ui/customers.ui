@@ -186,6 +186,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_buttonEdit_clicked"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -200,6 +201,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_stock">True</property>
+                    <signal name="clicked" handler="on_buttonDelete_clicked"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -218,7 +220,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkTreeView" id="treeview1">
+          <object class="GtkTreeView" id="listview">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="model">model</property>
