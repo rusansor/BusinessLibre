@@ -71,11 +71,7 @@
               </object>
             </child>
             <child>
-<<<<<<< HEAD
-              <object class="GtkMenuItem" id="company_data">
-=======
               <object class="GtkMenuItem" id="menuitem_company_data">
->>>>>>> product
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">_Company data</property>
                 <property name="use_underline">True</property>

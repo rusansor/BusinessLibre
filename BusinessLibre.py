@@ -5,11 +5,7 @@ import pygtk
 pygtk.require("2.0")
 import gtk
 from uicontroller.customers import UIControllerCustomer
-<<<<<<< HEAD
 from uicontroller.products  import UIControllerProducts
-=======
-from uicontroller.products import UIControllerProducts
->>>>>>> product
 
 import dao.ormsqlalchemy
 
