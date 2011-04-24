@@ -1,4 +1,3 @@
-from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
 class Customer(object):
     
     def __init__(self, id, name, cif):
