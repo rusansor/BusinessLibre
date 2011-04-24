@@ -5,7 +5,7 @@
   <object class="GtkWindow" id="window_customer_edit">
     <property name="title" translatable="yes">Customer adding/editing</property>
     <property name="modal">True</property>
-    <property name="window_position">center-on-parent</property>
+    <property name="window_position">center</property>
     <child>
       <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
@@ -139,6 +139,8 @@
   </object>
   <object class="GtkWindow" id="window_customer_main">
     <property name="title" translatable="yes">Customers</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
     <child>
       <object class="GtkVBox" id="vbox3">
         <property name="visible">True</property>

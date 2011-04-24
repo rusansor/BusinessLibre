@@ -13,6 +13,7 @@ class App(object):
         builder = gtk.Builder()
         builder.add_from_file("ui/main.ui")
         self.window = builder.get_object("window")
+        self.window.maximize()
         builder.connect_signals(self)
         self.window.show()
 
