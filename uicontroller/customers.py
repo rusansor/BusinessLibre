@@ -50,10 +50,13 @@ class UIControllerCustomer:
         name = entryName.get_text()
         entryCIF = self.builder.get_object("entryCIF")
         cif = entryCIF.get_text()
-        newCustomer = Customer(name, cif)
+        newCustomer = Customer(None, name, cif)
         self.addCustomer(newCustomer)
+        self.window_edit.destroy()
 
     def addCustomer(self, customer):
-        self.model.append([customer.name])
+        self.session.add(customer)
+        self.session.commit()
+        self.model.append([customer.id, customer.name, customer.cif])
 
 
