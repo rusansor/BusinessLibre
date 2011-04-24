@@ -13,6 +13,7 @@ class UIControllerCustomer:
         self.builder.add_from_file("ui/customers.ui")
         self.window = self.builder.get_object("window_customer_main")
         self.listview = self.builder.get_object("listview")
+        self.model = self.builder.get_object("model")
 
         self.populate_customers_list()
         self.builder.connect_signals(self)
@@ -20,9 +21,9 @@ class UIControllerCustomer:
 
     def populate_customers_list(self):
         self.model = self.builder.get_object("model")
-        customers = self.session.query(Customer).all()
-        for customer in customers:
-            self.model.append([customer.name])
+        self.customers = self.session.query(Customer).all()
+        for customer in self.customers:
+            self.model.append([customer.id, customer.name, customer.cif])
 
     def on_buttonAdd_clicked(self,widget):
         self.window_edit = self.builder.get_object("window_customer_edit")
@@ -37,7 +38,12 @@ class UIControllerCustomer:
         listselection = self.listview.get_selection()
         model, iter = listselection.get_selected()
         data = model.get_value(iter, 0)
-        
+        for customer in self.customers:
+            if customer.id == data:
+                self.session.delete(customer)
+                self.customers.remove(customer)
+                self.model.remove(iter)
+                self.session.commit()
 
     def on_buttonApply_clicked(self,widget):
         entryName = self.builder.get_object("entryName")
