@@ -20,11 +20,10 @@ class UIControllerProducts:
         self.window.show()
 
     def populate_products_list(self):
-        self.model = self.builder.get_object("model")
         self.products = self.session.query(Product).all()
         if self.products is not None:
             for product in self.products:
-                self.model.append([product.id, product.name, product.cif])
+                self.model.append( [product.id, product.code, product.name, str(product.price) ])
 
     def on_buttonAdd_clicked(self,widget):
         self.window_edit = self.builder.get_object("window_product_edit")

@@ -39,4 +39,9 @@ session.add_all([
          Customer(None, 'mary', '7755332288'),
          Customer(None, 'fred', '9900119922')])
 
+session.add_all([
+         Product(None, '001', 'Alquiler Paterna', 700),
+         Product(None, '002', 'Alquiler L\'Eliana', 900),
+         Product(None, '003', 'Alquiler Paterna', 600)])
+
 session.commit()

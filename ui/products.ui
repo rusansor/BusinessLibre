@@ -2,6 +2,18 @@
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
+  <object class="GtkListStore" id="list_store">
+    <columns>
+      <!-- column-name id -->
+      <column type="gint"/>
+      <!-- column-name code -->
+      <column type="gchararray"/>
+      <!-- column-name name -->
+      <column type="gchararray"/>
+      <!-- column-name price -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
   <object class="GtkWindow" id="window_main">
     <property name="window_position">center</property>
     <child>
@@ -125,17 +137,5 @@
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkListStore" id="list_store">
-    <columns>
-      <!-- column-name id -->
-      <column type="gint"/>
-      <!-- column-name code -->
-      <column type="gchararray"/>
-      <!-- column-name name -->
-      <column type="gchararray"/>
-      <!-- column-name price -->
-      <column type="gfloat"/>
-    </columns>
   </object>
 </interface>
