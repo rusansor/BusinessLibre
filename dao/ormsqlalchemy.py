@@ -5,6 +5,7 @@ from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
 from sqlalchemy.orm import mapper
 
 from model.customer import Customer
+from model.product import Product
 
 from sqlalchemy.orm import sessionmaker
 engine = create_engine('sqlite:///:memory:', echo=True)
@@ -16,7 +17,14 @@ customers_table = Table('customers', metadata,
     Column('cif', String),
 )
 
+products_table = Table('products', metadata,
+    Column('id', Integer, primary_key=True),
+    Column('code', String),
+    Column('name', String),
+    Column('price', String),
+)
 mapper(Customer, customers_table)
+mapper(Product, products_table)
  
 metadata.create_all(engine)
 
