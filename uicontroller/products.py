@@ -11,9 +11,9 @@ class UIControllerProducts:
 
         self.builder = gtk.Builder()
         self.builder.add_from_file("ui/products.ui")
-        self.window = self.builder.get_object("window_product_main")
-        self.listview = self.builder.get_object("listview")
-        self.model = self.builder.get_object("model")
+        self.window = self.builder.get_object("window_main")
+        self.listview = self.builder.get_object("list_view")
+        self.model = self.builder.get_object("list_store")
 
         self.populate_products_list()
         self.builder.connect_signals(self)
