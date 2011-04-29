@@ -26,6 +26,9 @@ class UIControllerCustomer:
 
     def on_buttonAdd_clicked(self,widget):
         self.window_edit = self.builder.get_object("window_customer_edit")
+        self.builder.get_object("entryName").set_text('')
+        self.builder.get_object("entryCIF").set_text('')
+
         self.window_edit.show()
 
     def on_buttonEdit_clicked(self,widget):
@@ -51,7 +54,7 @@ class UIControllerCustomer:
         cif = entryCIF.get_text()
         newCustomer = Customer(None, name, cif)
         self.addCustomer(newCustomer)
-        self.window_edit.destroy()
+        self.window_edit.hide()
 
     def addCustomer(self, customer):
         self.session.add(customer)
