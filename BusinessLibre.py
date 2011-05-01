@@ -1,9 +1,7 @@
 #!/usr/bin/python2
 
 
-import pygtk
-pygtk.require("2.0")
-import gtk
+from gi.repository import Gtk
 from uicontroller.customers import UIControllerCustomer
 from uicontroller.products  import UIControllerProducts
 
@@ -11,7 +9,7 @@ import dao.ormsqlalchemy
 
 class App(object):       
     def __init__(self):
-        builder = gtk.Builder()
+        builder = Gtk.Builder()
         builder.add_from_file("ui/main.ui")
         self.window = builder.get_object("window")
         self.window.maximize()
@@ -25,11 +23,11 @@ class App(object):
         UIControllerProducts()
 
     def on_window_destroy(self, widget, data=None):      
-        gtk.main_quit()
+        Gtk.main_quit()
 
 if __name__ == "__main__":
     app = App()
-    gtk.main()
+    Gtk.main()
 
 
     

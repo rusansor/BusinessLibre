@@ -1,6 +1,4 @@
-import pygtk
-pygtk.require("2.0")
-import gtk
+from gi.repository import Gtk
 
 from dao.ormsqlalchemy import Session
 from model.customer import Customer
@@ -9,7 +7,7 @@ class UIControllerCustomer:
     def __init__(self):
         self.session = Session()
 
-        self.builder = gtk.Builder()
+        self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/customers.ui")
         self.window = self.builder.get_object("window_main")
         self.listview = self.builder.get_object("list_view")

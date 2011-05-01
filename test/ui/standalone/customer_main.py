@@ -1,12 +1,12 @@
 #!/usr/bin/python2
 
 import pygtk
-pygtk.require("2.0")
-import gtk
+pyGtk.require("2.0")
+from gi.repository import Gtk
 
 class TutorialApp(object):       
     def __init__(self):
-        builder = gtk.Builder()
+        builder = Gtk.Builder()
         builder.add_from_file("../../../ui/customers.ui")
         self.window = builder.get_object("window_customer_main")
         self.model = builder.get_object("model")
@@ -26,11 +26,11 @@ class TutorialApp(object):
 
     def on_window_destroy(self, widget, data=None):      
         print 'bye!!!!!!!!'        
-        gtk.main_quit()
+        Gtk.main_quit()
 
 if __name__ == "__main__":
     app = TutorialApp()
-    gtk.main()
+    Gtk.main()
 
 
     

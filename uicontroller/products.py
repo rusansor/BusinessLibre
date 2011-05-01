@@ -1,6 +1,4 @@
-import pygtk
-pygtk.require("2.0")
-import gtk
+from gi.repository import Gtk
 
 from dao.ormsqlalchemy import Session
 from model.product import Product
@@ -9,7 +7,7 @@ class UIControllerProducts:
     def __init__(self):
         self.session = Session()
 
-        self.builder = gtk.Builder()
+        self.builder = Gtk.Builder()
         self.builder.add_from_file("ui/products.ui")
         self.window = self.builder.get_object("window_main")
         self.listview = self.builder.get_object("list_view")
@@ -26,12 +24,13 @@ class UIControllerProducts:
                 self.model.append( [product.id, product.code, product.name, str(product.price) ])
 
     def on_buttonAdd_clicked(self,widget):
-        self.window_edit = self.builder.get_object("window_product_edit")
+        print 'adding...'
+        self.window_edit = self.builder.get_object("window_edit")
         self.window_edit.show()
 
     def on_buttonEdit_clicked(self,widget):
         print 'editing...'
-        self.window_edit = self.builder.get_object("window_product_edit")
+        self.window_edit = self.builder.get_object("window_edit")
         self.window_edit.show()
 
     def on_buttonDelete_clicked(self,widget):
